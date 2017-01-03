@@ -48,7 +48,7 @@ public class FindElementsTesting {
         
 		int i;
 		
-		for(i=1; i<=10; i++)
+		for(i=1; i<=200; i++)
 		
 		{
 		//Clicking on Controls tab
@@ -57,7 +57,7 @@ public class FindElementsTesting {
 				.xpath("//*[@id='main-tab']/nav/a[2]")));
 
 		driver.findElement(By.xpath("//*[@id='main-tab']/nav/a[2]")).click();
-		Thread.sleep(15000);
+		Thread.sleep(25000);
 		
 		driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/section/div[1]/span[contains(text(), 'PCT00011')]"));
 		

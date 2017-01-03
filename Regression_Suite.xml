@@ -4,7 +4,7 @@
 
   <test name="Default test">
     <classes>
-      <class name="CI_Package.CreateNewAlertConfiguration"/>
+      <class name="CI_Package.FindElementsTesting"/>
      
     </classes>
   </test> <!-- Default test -->

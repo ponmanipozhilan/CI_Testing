@@ -48,7 +48,7 @@ public class FindElementsTesting {
         
 		int i;
 		
-		for(i=1; i<=200; i++)
+		for(i=1; i<=3; i++)
 		
 		{
 		//Clicking on Controls tab
@@ -57,9 +57,18 @@ public class FindElementsTesting {
 				.xpath("//*[@id='main-tab']/nav/a[2]")));
 
 		driver.findElement(By.xpath("//*[@id='main-tab']/nav/a[2]")).click();
-		Thread.sleep(25000);
+		
+		long start = System.currentTimeMillis();
+		
+		WebDriverWait wait3 = new WebDriverWait(driver, 25);
+		wait3.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-body']/section/ul/li[1]/section/div[1]/span[contains(text(), 'PCT00011')]")));
 		
 		driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/section/div[1]/span[contains(text(), 'PCT00011')]"));
+		
+		long finish = System.currentTimeMillis();
+		long totalTime = finish - start; 
+		System.out.println("Total Time for page load - "+totalTime); 
 		
 		System.out.println("Gateway loaded successfully" +i);
 		

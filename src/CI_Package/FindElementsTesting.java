@@ -48,7 +48,7 @@ public class FindElementsTesting {
         
 		int i;
 		
-		for(i=1; i<=3; i++)
+		for(i=1; i<=5; i++)
 		
 		{
 		//Clicking on Controls tab
@@ -68,23 +68,23 @@ public class FindElementsTesting {
 		
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start; 
-		System.out.println("Total Time for page load - "+totalTime); 
+		System.out.println("Total Time for page load - "+totalTime/1000); 
 		
 		System.out.println("Gateway loaded successfully" +i);
 		
-		Thread.sleep(3000);
-		
-		driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/ul/li/a/div/div/span[contains(text(), 'emRTU_2')]/parent::div/parent::div/dl[1]/dd"));
-		
-		System.out.println("RTU2 loaded successfully" +i);
-		
-		Thread.sleep(3000);
-		
-        driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/ul/li/a/div/div/span[contains(text(), 'emRTU_7')]/parent::div/parent::div/dl[1]/dd"));
-		
-		System.out.println("RTU7 loaded successfully" +i);
-		
-		Thread.sleep(3000);
+//		Thread.sleep(3000);
+//		
+//		driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/ul/li/a/div/div/span[contains(text(), 'emRTU_2')]/parent::div/parent::div/dl[1]/dd"));
+//		
+//		System.out.println("RTU2 loaded successfully" +i);
+//		
+//		Thread.sleep(3000);
+//		
+//        driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/ul/li/a/div/div/span[contains(text(), 'emRTU_7')]/parent::div/parent::div/dl[1]/dd"));
+//		
+//		System.out.println("RTU7 loaded successfully" +i);
+//		
+//		Thread.sleep(3000);
 		
 		driver.findElement(By.xpath("//*[@id='main-tab']/nav/a[1]")).click();
 		

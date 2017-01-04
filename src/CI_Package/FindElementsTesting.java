@@ -68,7 +68,11 @@ public class FindElementsTesting {
 		
 		long finish = System.currentTimeMillis();
 		long totalTime = finish - start; 
-		System.out.println("Total Time for page load - "+totalTime/1000); 
+		System.out.println("Total Time for page load - "+totalTime); 
+		double totaltime_Seconds = totalTime/1000.0;
+		System.out.println("Total time in seconds-"+totaltime_Seconds);
+		
+		
 		
 		System.out.println("Gateway loaded successfully" +i);
 		

@@ -48,7 +48,7 @@ public class FindElementsTesting {
         
 		int i;
 		
-		for(i=1; i<=5; i++)
+		for(i=1; i<=500; i++)
 		
 		{
 		//Clicking on Controls tab
@@ -74,7 +74,7 @@ public class FindElementsTesting {
 		
 		
 		
-		System.out.println("Gateway loaded successfully" +i);
+		System.out.println(i+"- Gateway loaded successfully");
 		
 //		Thread.sleep(3000);
 //		

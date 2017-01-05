@@ -10,8 +10,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.io.FileUtils;
+import org.testng.annotations.Test;
 
 public class Jenkins_Test2 {
+	
+	@Test
+	public void printOwnershipCode() throws Exception{
+		String output = getProcessOutput("C:\\Akshay_Simulator\\Debug\\Simulator.exe -t lcbs -f");
+		String code = getOwnershipCode(output);
+		System.out.println("ownership code received is: ");
+		System.out.println(code);
+		
+	}
 
 	public static void main(String[] args) throws Exception {
 		
@@ -63,7 +73,7 @@ public class Jenkins_Test2 {
 	}
 
 	public static String getProcessOutput(String commands) throws IOException, InterruptedException {
-		
+		System.out.println("executing: "+commands);
 		//commands = "start ping google.com";
 		ProcessBuilder builder = new ProcessBuilder(commands);
 		builder.redirectErrorStream(true);

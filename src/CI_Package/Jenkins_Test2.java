@@ -16,7 +16,8 @@ public class Jenkins_Test2 {
 	
 	@Test
 	public void printOwnershipCode() throws Exception{
-		String output = getProcessOutput("C:\\Akshay_Simulator\\Debug\\Simulator.exe -t lcbs -f");
+		String[] commands = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-f"};
+		String output = getProcessOutput(commands);
 		String code = getOwnershipCode(output);
 		System.out.println("ownership code received is: ");
 		System.out.println(code);
@@ -29,8 +30,8 @@ public class Jenkins_Test2 {
 //		String data = FileUtils.readFileToString(f);
 		//System.out.println(data);
 
-		
-		String output = getProcessOutput("C:\\Akshay_Simulator\\Debug\\Simulator.exe -t lcbs -f");
+		String[] cmds = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe",   "-t lcbs", "-f"};
+		String output = getProcessOutput(cmds);
 		String code = getOwnershipCode(output);
 		System.out.println("ownership code received is: ");
 		System.out.println(code);
@@ -72,13 +73,22 @@ public class Jenkins_Test2 {
 		return ownershipCode;
 	}
 
-	public static String getProcessOutput(String commands) throws IOException, InterruptedException {
-		System.out.println("executing: "+commands);
+	public static String getProcessOutput(String[] commands) throws IOException, InterruptedException {
+		System.out.println("executing: "+String.join(" ", commands));
 		//commands = "start ping google.com";
+		
 		ProcessBuilder builder = new ProcessBuilder(commands);
 		builder.redirectErrorStream(true);
 		Process process = builder.start();
-		process.waitFor();
+		//process.waitFor();
+		System.out.println("wait for 2 mins");
+		//Thread.sleep(2 * 60000);
+		//System.out.println("---");
+		
+		
+		
+		
+		
 		// retrieve output from python script
 		BufferedReader bfr = new BufferedReader(new InputStreamReader(
 				process.getInputStream()));
@@ -88,7 +98,10 @@ public class Jenkins_Test2 {
 			// display each output line form python script
 			output.append(line);
 			System.out.println(line);
-			
+			if(output.lastIndexOf("<Enter>") != -1){
+				System.out.println("found last");
+				process.destroyForcibly();
+			}
 		}
 		return output.toString(); 
 	}

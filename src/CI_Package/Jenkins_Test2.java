@@ -203,13 +203,14 @@ public class Jenkins_Test2 {
 	}
 	
 	//To Start the simulator
-	public static String start(String[] commands2) throws IOException{
+	public static String start(String[] commands2) throws IOException, InterruptedException{
 		System.out.println("executing: "+String.join(" ", commands2));
 		
 		ProcessBuilder builder = new ProcessBuilder(commands2);
 		builder.redirectErrorStream(true);
 		Process process = builder.start();
 		
+		Thread.sleep(30000);
 //		BufferedReader bfr = new BufferedReader(new InputStreamReader(
 //				process.getInputStream()));
 //		StringBuffer output2 = new StringBuffer();

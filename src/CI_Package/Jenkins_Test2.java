@@ -29,8 +29,8 @@ public class Jenkins_Test2 {
 //		String code = getOwnershipCode(output1);
 //		System.out.println("ownership code received is: ");
 //		System.out.println(code);
-//		String[] commands4 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
-//      copydata(commands4);
+		String[] commands4 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
+        copydata(commands4);
 //		
 //		Gatewayassociate(code);
 

@@ -204,7 +204,7 @@ public class Jenkins_Test2 {
 	
 	//To Start the simulator
 	public static String start() throws IOException, InterruptedException{
-	System.out.println("executing: "+String.join(""));
+	System.out.println("executing: start "+String.join(""));
 	
 	Process runtime = Runtime.getRuntime().exec("cmd /c start C:\\Akshay_Simulator\\Debug\\simulation.bat");
 

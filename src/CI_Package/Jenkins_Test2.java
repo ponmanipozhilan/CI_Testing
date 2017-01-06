@@ -24,19 +24,19 @@ public class Jenkins_Test2 {
 	
 	@Test
 	public void printOwnershipCode() throws Exception{
-		String[] commands = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-f"};
-		String output1 = factoryregistration(commands);
-		String code = getOwnershipCode(output1);
-		System.out.println("ownership code received is: ");
-		System.out.println(code);
-		String[] commands4 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
-        copydata(commands4);
-		
-		Gatewayassociate(code);
+//		String[] commands = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-f"};
+//		String output1 = factoryregistration(commands);
+//		String code = getOwnershipCode(output1);
+//		System.out.println("ownership code received is: ");
+//		System.out.println(code);
+//		String[] commands4 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
+//        copydata(commands4);
+//		
+//		Gatewayassociate(code);
 
 
-        String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
-		register(commands1);
+//        String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
+//		register(commands1);
 		String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-s"};
 		start(commands2);
 		
@@ -45,17 +45,32 @@ public class Jenkins_Test2 {
 
 
 //	public static void main(String[] args) throws Exception {
+//
+//		String[] cmds = {"C:\\windows\\system32\\calc.exe"};
+//
+//		ProcessBuilder builder = new ProcessBuilder(cmds);
+//		builder.redirectErrorStream(true);
+//		Process process = builder.start();
+//
+//
+////		BufferedReader bfr = new BufferedReader(new InputStreamReader(
+////				process.getInputStream()));
+////		StringBuffer output = new StringBuffer();
+////		String line = "";
+////		while ((line = bfr.readLine()) != null) {
+////			output.append(line);
+////			System.out.println(line);
+////			if(output.lastIndexOf("<Enter>") != -1){
+////				System.out.println("found last");
+////				process.destroyForcibly();
+////			}
+////		}
 //		
-//		String[] cmds = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe",   "-t lcbs", "-f"};
-//		String output = getProcessOutput(cmds);
-//		String code = getOwnershipCode(output);
-//		System.out.println("ownership code received is: ");
-//		System.out.println(code);
 //	}		
 	
 	
 	
-	private void Gatewayassociate(String ownershipcode) throws InterruptedException {
+	private void Gatewayassociate(String ownershipcode) throws InterruptedException, IOException {
 		
         System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\\chromedriver.exe");
 		
@@ -107,6 +122,24 @@ public class Jenkins_Test2 {
         System.out.print("Waiting 10min");
 		Thread.sleep(600000);
 		
+		String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
+		register(commands1);
+		String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-s"};
+		start(commands2);
+			
+		WebDriverWait wait6 = new WebDriverWait(driver, 25);
+		wait6.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-body']/section/ul/li[1]/section/div[1]/span[contains(text(), '" + ownershipcode + "')]")));
+		
+		driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/section/div[1]/span[contains(text(), '" + ownershipcode + "')]"));
+				
+		System.out.println("Gateway loaded successfully");
+		
+		Thread.sleep(3000);
+		
+		driver.findElement(By.xpath("//*[@id='main-body']/section/ul/li[1]/ul/li/a/div/div/span[contains(text(), 'RTU_360')]/parent::div/parent::div/dl[1]/dd"));
+		
+		System.out.println("RTU loaded successfully");
 	}
 
 	//To Get the Ownership code
@@ -177,15 +210,15 @@ public class Jenkins_Test2 {
 		builder.redirectErrorStream(true);
 		Process process = builder.start();
 		
-		BufferedReader bfr = new BufferedReader(new InputStreamReader(
-				process.getInputStream()));
-		StringBuffer output2 = new StringBuffer();
-		String line = "";
-		while ((line = bfr.readLine()) != null) {
-				output2.append(line);
-			System.out.println(line);
-			
-		}
+//		BufferedReader bfr = new BufferedReader(new InputStreamReader(
+//				process.getInputStream()));
+//		StringBuffer output2 = new StringBuffer();
+//		String line = "";
+//		while ((line = bfr.readLine()) != null) {
+//				output2.append(line);
+//			System.out.println(line);
+//			
+//		}
 		return null;	
 								
 	}

@@ -75,12 +75,12 @@ public class Jenkins_Test2 {
 				.xpath("//*[@id='main-nav']/ul/li[2]/a")));
 		
 		driver.findElement(By.xpath("//*[@id='main-nav']/ul/li[2]/a")).click();
-		WebDriverWait wait1 = new WebDriverWait(driver, 20);
+		WebDriverWait wait1 = new WebDriverWait(driver, 120);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By
-				.xpath("//*[@id='main-content']/ul/li/div[1]/a/article/span[contains(text(), 'Building1')]")));
+				.xpath("//*[@id='main-content']/ul/li/div[1]/a/article/span[contains(text(), 'Buidling1')]")));
 
 		driver.findElement(By.xpath("//*[@id='main-content']/ul/li/div[1]/a/article/span[contains(text(), 'Buidling1')]")).click();
-		WebDriverWait wait2 = new WebDriverWait(driver, 5);
+		WebDriverWait wait2 = new WebDriverWait(driver, 20);
 		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
 				.xpath("//*[@id='main-tab']/nav/a[2]")));
 		
@@ -109,6 +109,7 @@ public class Jenkins_Test2 {
 		
 	}
 
+	//To Get the Ownership code
 	public static String getOwnershipCode(String processouts) {
 		String ownershipCode = null;
 		String strPattern = "DeviceOwnershipCode = ([\\w]{8})";
@@ -120,6 +121,7 @@ public class Jenkins_Test2 {
 		return ownershipCode;
 	}
 
+	//To do the Factory registration
 	public static String factoryregistration(String[] commands) throws IOException, InterruptedException {
 		System.out.println("executing: "+String.join(" ", commands));
 				
@@ -143,6 +145,7 @@ public class Jenkins_Test2 {
 		return output.toString(); 
 	}
 
+	//To Register the simulator
 	public static String register(String[] commands1) throws IOException{
 		System.out.println("executing: "+String.join(" ", commands1));
 				
@@ -166,6 +169,7 @@ public class Jenkins_Test2 {
 		
 	}
 	
+	//To Start the simulator
 	public static String start(String[] commands2) throws IOException{
 		System.out.println("executing: "+String.join(" ", commands2));
 		
@@ -187,7 +191,7 @@ public class Jenkins_Test2 {
 	}
 	
 	
-	
+	//Execute CopyData powershell script
 	public static String copydata(String[] commands4) throws IOException{
 		System.out.println("executing: "+String.join(" ", commands4));
 				

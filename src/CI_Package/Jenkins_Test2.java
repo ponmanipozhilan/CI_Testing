@@ -37,8 +37,8 @@ public class Jenkins_Test2 {
 
 //      String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
 //		register(commands1);
-		String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\simulation.bat"};
-		start(commands2);
+		//String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\simulation.bat"};
+		start();
 		
 	}
 
@@ -125,7 +125,7 @@ public class Jenkins_Test2 {
 		String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
 		register(commands1);
 		String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-s"};
-		start(commands2);
+		start();
 			
 		WebDriverWait wait6 = new WebDriverWait(driver, 25);
 		wait6.until(ExpectedConditions.visibilityOfElementLocated(By
@@ -203,7 +203,7 @@ public class Jenkins_Test2 {
 	}
 	
 	//To Start the simulator
-	public static String start(String[] commands2) throws IOException, InterruptedException{
+	public static String start() throws IOException, InterruptedException{
 //		System.out.println("executing: "+String.join(" ", commands2));
 //		
 //		ProcessBuilder builder = new ProcessBuilder(commands2);

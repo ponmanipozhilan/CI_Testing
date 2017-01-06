@@ -35,9 +35,9 @@ public class Jenkins_Test2 {
 		Gatewayassociate(code);
 
 
-        String[] commands1 = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
+        String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
 		register(commands1);
-		String[] commands2 = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-s"};
+		String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-s"};
 		start(commands2);
 		
 	}
@@ -191,7 +191,7 @@ public class Jenkins_Test2 {
 	}
 	
 	
-	//Execute CopyData powershell script
+	//Execute CopyData Powershell script
 	public static String copydata(String[] commands4) throws IOException{
 		System.out.println("executing: "+String.join(" ", commands4));
 				

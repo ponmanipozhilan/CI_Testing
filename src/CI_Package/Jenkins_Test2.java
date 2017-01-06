@@ -16,6 +16,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class Jenkins_Test2 {
@@ -23,20 +25,20 @@ public class Jenkins_Test2 {
 	@Test
 	public void printOwnershipCode() throws Exception{
 		String[] commands = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-f"};
-		String output1 = getProcessOutput(commands);
+		String output1 = factoryregistration(commands);
 		String code = getOwnershipCode(output1);
 		System.out.println("ownership code received is: ");
 		System.out.println(code);
-		String[] commands5 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
-        String output2 = copydata(commands5);
+		String[] commands4 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
+        copydata(commands4);
 		
-//		associate(code);
-//		copydata();
-//		Thread.sleep(600000);
-//		String[] commands1 = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
-//		register(commands1);
-//		String[] commands2 = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-s"};
-//		start(commands2);
+		Gatewayassociate(code);
+
+
+        String[] commands1 = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
+		register(commands1);
+		String[] commands2 = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-s"};
+		start(commands2);
 		
 	}
 
@@ -53,9 +55,9 @@ public class Jenkins_Test2 {
 	
 	
 	
-	private void associate(String ownershipcode) throws InterruptedException {
+	private void Gatewayassociate(String ownershipcode) throws InterruptedException {
 		
-System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\\chromedriver.exe");
 		
 		WebDriver driver=new ChromeDriver();
 		
@@ -86,6 +88,14 @@ System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\
 		
 		driver.findElement(By.xpath("//*[@id='main-body']/section/section[1]/div/button")).click();
 		
+		WebDriverWait wait3 = new WebDriverWait(driver, 120);
+		wait3.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-body']/section/section[2]/button[2]")));
+		
+		driver.findElement(By.xpath("//*[@id='main-body']/section/section[2]/button[2]")).click();
+
+		Thread.sleep(600000);
+		
 	}
 
 	public static String getOwnershipCode(String processouts) {
@@ -99,23 +109,20 @@ System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\
 		return ownershipCode;
 	}
 
-	public static String getProcessOutput(String[] commands) throws IOException, InterruptedException {
+	public static String factoryregistration(String[] commands) throws IOException, InterruptedException {
 		System.out.println("executing: "+String.join(" ", commands));
-		//commands = "start ping google.com";
-		
+				
 		ProcessBuilder builder = new ProcessBuilder(commands);
 		builder.redirectErrorStream(true);
 		Process process = builder.start();
-		//process.waitFor();
-		System.out.println("wait for 2 mins");
+	
 		
 		BufferedReader bfr = new BufferedReader(new InputStreamReader(
 				process.getInputStream()));
 		StringBuffer output = new StringBuffer();
 		String line = "";
 		while ((line = bfr.readLine()) != null) {
-			// display each output line form python script
-			output.append(line);
+					output.append(line);
 			System.out.println(line);
 			if(output.lastIndexOf("<Enter>") != -1){
 				System.out.println("found last");
@@ -127,21 +134,17 @@ System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\
 
 	public static String register(String[] commands1) throws IOException{
 		System.out.println("executing: "+String.join(" ", commands1));
-		//commands = "start ping google.com";
-		
+				
 		ProcessBuilder builder = new ProcessBuilder(commands1);
 		builder.redirectErrorStream(true);
 		Process process = builder.start();
-		//process.waitFor();
-		System.out.println("wait for 2 mins");
 		
 		BufferedReader bfr = new BufferedReader(new InputStreamReader(
 				process.getInputStream()));
 		StringBuffer output = new StringBuffer();
 		String line = "";
 		while ((line = bfr.readLine()) != null) {
-			// display each output line form python script
-			output.append(line);
+					output.append(line);
 			System.out.println(line);
 			if(output.lastIndexOf("<Enter>") != -1){
 				System.out.println("found last");
@@ -154,53 +157,41 @@ System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\
 	
 	public static String start(String[] commands2) throws IOException{
 		System.out.println("executing: "+String.join(" ", commands2));
-		//commands = "start ping google.com";
 		
 		ProcessBuilder builder = new ProcessBuilder(commands2);
 		builder.redirectErrorStream(true);
 		Process process = builder.start();
-		//process.waitFor();
-		System.out.println("wait for 2 mins");
 		
 		BufferedReader bfr = new BufferedReader(new InputStreamReader(
 				process.getInputStream()));
 		StringBuffer output2 = new StringBuffer();
 		String line = "";
 		while ((line = bfr.readLine()) != null) {
-			// display each output line form python script
-			output2.append(line);
+				output2.append(line);
 			System.out.println(line);
 			
 		}
 		return null;	
-		
-						
+								
 	}
 	
 	
 	
-	public static String copydata(String[] commands5) throws IOException{
-		System.out.println("executing: "+String.join(" ", commands5));
-		//commands = "start ping google.com";
-		
-		ProcessBuilder builder = new ProcessBuilder(commands5);
+	public static String copydata(String[] commands4) throws IOException{
+		System.out.println("executing: "+String.join(" ", commands4));
+				
+		ProcessBuilder builder = new ProcessBuilder(commands4);
 		builder.redirectErrorStream(true);
 		Process process = builder.start();
-		//process.waitFor();
-		System.out.println("wait for 2 mins");
-		
+				
 		BufferedReader bfr = new BufferedReader(new InputStreamReader(
 				process.getInputStream()));
 		StringBuffer output = new StringBuffer();
 		String line = "";
 		while ((line = bfr.readLine()) != null) {
-			// display each output line form python script
 			output.append(line);
 			System.out.println(line);
-//			if(output.lastIndexOf("<Enter>") != -1){
-//				System.out.println("found last");
-//				process.destroyForcibly();
-//			}
+
 		}
 		return null;	
 		

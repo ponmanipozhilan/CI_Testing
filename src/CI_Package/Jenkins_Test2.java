@@ -27,8 +27,8 @@ public class Jenkins_Test2 {
 //		String code = getOwnershipCode(output);
 //		System.out.println("ownership code received is: ");
 //		System.out.println(code);
-		//String[] commands3 = {"C:\\Selenium\\Akshay_Simulator\\Debug", "powershell",  "./CopyData.ps1"};
-        copydata();
+		String[] commands5 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
+        String output = copydata(commands5);
 		
 //		associate(code);
 //		copydata();
@@ -50,46 +50,6 @@ public class Jenkins_Test2 {
 //		System.out.println("ownership code received is: ");
 //		System.out.println(code);
 //	}		
-	
-	public static String copydata() throws IOException {
-		System.out.println("executing copydata ddddddddddddddd: "+String.join(" "));
-
-		ProcessBuilder builder = new ProcessBuilder("C:\\Akshay_Simulator\\Debug\\copy.bat");
-		builder.redirectErrorStream(true);
-		Process process = builder.start();
-		
-		System.out.println("executing copydata dddddddddddddddeeennnddd: "+String.join(" "));
-		
-		
-		
-		
-		
-		return null;
-		
-	
-		
-		
-		
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	
@@ -214,8 +174,36 @@ System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\
 		}
 		return null;	
 		
+						
+	}
+	
+	
+	
+	public static String copydata(String[] commands5) throws IOException{
+		System.out.println("executing: "+String.join(" ", commands5));
+		//commands = "start ping google.com";
 		
-				
+		ProcessBuilder builder = new ProcessBuilder(commands5);
+		builder.redirectErrorStream(true);
+		Process process = builder.start();
+		//process.waitFor();
+		System.out.println("wait for 2 mins");
+		
+		BufferedReader bfr = new BufferedReader(new InputStreamReader(
+				process.getInputStream()));
+		StringBuffer output = new StringBuffer();
+		String line = "";
+		while ((line = bfr.readLine()) != null) {
+			// display each output line form python script
+			output.append(line);
+			System.out.println(line);
+//			if(output.lastIndexOf("<Enter>") != -1){
+//				System.out.println("found last");
+//				process.destroyForcibly();
+//			}
+		}
+		return null;	
+		
 	}
 	
 	

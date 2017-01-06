@@ -207,8 +207,8 @@ public class Jenkins_Test2 {
 	System.out.println("executing: start "+String.join(""));
 	
 	Process runtime = Runtime.getRuntime().exec("cmd /c start C:\\Akshay_Simulator\\Debug\\simulation.bat");
-Thread.sleep(120000);
-
+Thread.sleep(60000);
+Gatewayassociate("12345678");
 			
 								
 	}

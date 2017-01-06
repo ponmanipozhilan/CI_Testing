@@ -29,15 +29,15 @@ public class Jenkins_Test2 {
 //		String code = getOwnershipCode(output1);
 //		System.out.println("ownership code received is: ");
 //		System.out.println(code);
-		String[] commands4 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
-        copydata(commands4);
+//		String[] commands4 = {"C:\\Akshay_Simulator\\Debug\\copy.bat"};
+//        copydata(commands4);
 //		
 //		Gatewayassociate(code);
 
 
 //      String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
 //		register(commands1);
-		//String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\simulation.bat"};
+		
 		start();
 		
 	}
@@ -204,31 +204,11 @@ public class Jenkins_Test2 {
 	
 	//To Start the simulator
 	public static String start() throws IOException, InterruptedException{
-//		System.out.println("executing: "+String.join(" ", commands2));
-//		
-//		ProcessBuilder builder = new ProcessBuilder(commands2);
-//		builder.redirectErrorStream(true);
-//		Process process = builder.start();
-//		
-//		Thread.sleep(30000);
-		
-		
-		String[] cmds = {"C:\\Akshay_Simulator\\Debug\\simulation.bat"};
-		
-				ProcessBuilder builder = new ProcessBuilder(cmds);
-				builder.redirectErrorStream(true);
-				Process process = builder.start();
-		
-		
-//		BufferedReader bfr = new BufferedReader(new InputStreamReader(
-//				process.getInputStream()));
-//		StringBuffer output2 = new StringBuffer();
-//		String line = "";
-//		while ((line = bfr.readLine()) != null) {
-//				output2.append(line);
-//			System.out.println(line);
-//			
-//		}
+	System.out.println("executing: "+String.join(""));
+	
+	Process runtime = Runtime.getRuntime().exec("cmd /c start C:\\Selenium\\Akshay_Simulator\\Debug\\simulation.bat");
+
+
 		return null;	
 								
 	}

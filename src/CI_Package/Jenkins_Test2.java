@@ -70,20 +70,31 @@ public class Jenkins_Test2 {
 		driver.findElement(By.id("cred_password_inputtext")).sendKeys("lcbs@1234");
 		Thread.sleep(2000);
 		driver.findElement(By.id("cred_sign_in_button")).click();
-		Thread.sleep(15000);
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-nav']/ul/li[2]/a")));
+		
 		driver.findElement(By.xpath("//*[@id='main-nav']/ul/li[2]/a")).click();
-		Thread.sleep(10000);
+		WebDriverWait wait1 = new WebDriverWait(driver, 20);
+		wait1.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-content']/ul/li/div[1]/a/article/span[contains(text(), 'Building1')]")));
 
 		driver.findElement(By.xpath("//*[@id='main-content']/ul/li/div[1]/a/article/span[contains(text(), 'Buidling1')]")).click();
-		Thread.sleep(5000);
+		WebDriverWait wait2 = new WebDriverWait(driver, 5);
+		wait2.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-tab']/nav/a[2]")));
 		
 		driver.findElement(By.xpath("//*[@id='main-tab']/nav/a[2]")).click();
-		Thread.sleep(15000);
+		WebDriverWait wait4 = new WebDriverWait(driver, 20);
+		wait4.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-body']/section/header/div/a")));
 		
 		driver.findElement(By.xpath("//*[@id='main-body']/section/header/div/a")).click();
-		Thread.sleep(2000);
+		WebDriverWait wait5 = new WebDriverWait(driver, 5);
+		wait5.until(ExpectedConditions.visibilityOfElementLocated(By
+				.xpath("//*[@id='main-body']/section/section[1]/input")));
 		
-		driver.findElement(By.xpath(".//*[@id='main-body']/section/section[1]/input")).sendKeys(ownershipcode);
+		driver.findElement(By.xpath("//*[@id='main-body']/section/section[1]/input")).sendKeys(ownershipcode);
 		Thread.sleep(5000);
 		
 		driver.findElement(By.xpath("//*[@id='main-body']/section/section[1]/div/button")).click();
@@ -93,7 +104,7 @@ public class Jenkins_Test2 {
 				.xpath("//*[@id='main-body']/section/section[2]/button[2]")));
 		
 		driver.findElement(By.xpath("//*[@id='main-body']/section/section[2]/button[2]")).click();
-
+        System.out.print("Waiting 10min");
 		Thread.sleep(600000);
 		
 	}

@@ -22,8 +22,8 @@ import org.testng.annotations.Test;
 
 public class Jenkins_Test2 {
 	
-	@Test
-	public void printOwnershipCode() throws Exception{
+	//@Test
+	//public void printOwnershipCode() throws Exception{
 //		String[] commands = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-f"};
 //		String output1 = factoryregistration(commands);
 //		String code = getOwnershipCode(output1);
@@ -38,14 +38,16 @@ public class Jenkins_Test2 {
 //      String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
 //		register(commands1);
 		
+		//start();
+		
+//	}
+
+
+
+	public static void main(String[] args) throws Exception {
+//
 		start();
 		
-	}
-
-
-
-//	public static void main(String[] args) throws Exception {
-//
 //		String[] cmds = {"C:\\windows\\system32\\calc.exe"};
 //
 //		ProcessBuilder builder = new ProcessBuilder(cmds);
@@ -66,7 +68,7 @@ public class Jenkins_Test2 {
 ////			}
 ////		}
 //		
-//	}		
+	}		
 	
 	
 	
@@ -203,12 +205,12 @@ public class Jenkins_Test2 {
 	}
 	
 	//To Start the simulator
-	public void start() throws IOException, InterruptedException{
+	public static void start() throws IOException, InterruptedException{
 	System.out.println("executing: start "+String.join(""));
 	
 	Process runtime = Runtime.getRuntime().exec("cmd /c start C:\\Akshay_Simulator\\Debug\\simulation.bat");
 Thread.sleep(60000);
-Gatewayassociate("12345678");
+
 			
 								
 	}

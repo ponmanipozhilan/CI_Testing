@@ -37,7 +37,7 @@ public class Jenkins_Test2 {
 
 //      String[] commands1 = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-r"};
 //		register(commands1);
-		String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\Simulation.bat"};
+		String[] commands2 = {"C:\\Akshay_Simulator\\Debug\\simulation.bat"};
 		start(commands2);
 		
 	}

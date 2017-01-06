@@ -22,7 +22,7 @@ public class Jenkins_Test2 {
 	
 	@Test
 	public void printOwnershipCode() throws Exception{
-		String[] commands = {"C:\\Selenium\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-f"};
+		String[] commands = {"C:\\Akshay_Simulator\\Debug\\Simulator.exe", "-t lcbs",  "-f"};
 		String output1 = getProcessOutput(commands);
 		String code = getOwnershipCode(output1);
 		System.out.println("ownership code received is: ");
